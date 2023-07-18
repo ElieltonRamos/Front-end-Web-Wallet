@@ -1,0 +1,59 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32.8125rem;
+  height: 22.25rem;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+  background: #FFF;
+  box-shadow: -4px 9px 13px 0px rgba(3, 107, 82, 0.30);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.emojiLogo {
+  width: 3.46856rem;
+  height: 3.46856rem;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 5.36763rem;
+  height: 2.11219rem;
+  flex-shrink: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn {
+  border-radius: 0.3125rem;
+  border: 1px solid #003BE5;
+  background: #003BE5;
+  width: 20.625rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Epilogue;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.input {
+  width: 20.625rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 0.3125rem;
+  border: 1px solid #003BE5;
+  background: #FFF;
+}
