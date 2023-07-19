@@ -20,18 +20,16 @@ export type Exchange = {
   create_date: string;
 };
 
-export type CurrencyData = {
-  exchangeRates: Exchange[];
-};
-
 export type PayloadCurrency = {
   id: number,
   description: string,
   tag: string;
   value: string;
-  methody: string;
+  method: string;
   currency: string;
-  exchangeRates: CurrencyData;
+  exchangeRates: {
+    [currency: string]: Exchange;
+  };
 };
 
 export type ActionUser = {

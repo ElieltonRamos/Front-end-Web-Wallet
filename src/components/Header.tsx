@@ -1,14 +1,16 @@
 import { useSelector } from 'react-redux';
 import stylesLogin from '../styles/login.module.css';
 import styles from '../styles/header.module.css';
-import { PayloadCurrency, RootState } from '../types';
+import { RootState } from '../types';
 
 function Header() {
   const { email } = useSelector((state: RootState) => state.user);
-  const expenses = useSelector((state: RootState) => state.wallet.expenses
-    .reduce((acc, curr: PayloadCurrency) => acc + Number(curr.value), 0));
-  const ask = useSelector((state: RootState) => state.wallet
-    .expenses.exchangeRates.USD.ask);
+  const expenses = useSelector((state: RootState) => {
+    return state.wallet.expenses.reduce((acc, curr) => {
+      return acc + Number(curr.value) * Number(curr
+        .exchangeRates[curr.currency].ask);
+    }, 0).toFixed(2);
+  });
   return (
     <header className={ styles.container }>
       <div className={ styles.logoContainer }>
@@ -23,8 +25,9 @@ function Header() {
           alt="expenses icon"
         />
         <h3 data-testid="total-field" className={ styles.totalField }>
-          {`Total de despesas: ${expenses} `}
-          <span data-testid="header-currency-field">BRL</span>
+          {/* <span>Total de despesas: </span> */}
+          {expenses}
+          {/* <span data-testid="header-currency-field">BRL</span> */}
         </h3>
       </section>
       <section className={ styles.containerInfos }>
