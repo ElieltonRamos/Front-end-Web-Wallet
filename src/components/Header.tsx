@@ -1,11 +1,14 @@
 import { useSelector } from 'react-redux';
 import stylesLogin from '../styles/login.module.css';
 import styles from '../styles/header.module.css';
-import { RootState } from '../types';
+import { PayloadCurrency, RootState } from '../types';
 
 function Header() {
   const { email } = useSelector((state: RootState) => state.user);
-  const expenses = 0;
+  const expenses = useSelector((state: RootState) => state.wallet.expenses
+    .reduce((acc, curr: PayloadCurrency) => acc + Number(curr.value), 0));
+  const ask = useSelector((state: RootState) => state.wallet
+    .expenses.exchangeRates.USD.ask);
   return (
     <header className={ styles.container }>
       <div className={ styles.logoContainer }>

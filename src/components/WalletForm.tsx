@@ -1,18 +1,20 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { actionAddExpense } from '../redux/actions';
+import { RootState } from '../types';
 
 const initialFormExpense = {
   id: 1,
   description: '',
-  category: '',
+  tag: 'alimentacao',
   value: '',
-  methody: '',
-  moeda: '',
+  methody: 'Dinheiro',
+  currency: 'USD',
 };
 
 function WalletForm() {
   const [expense, setExpense] = useState(initialFormExpense);
+  const { currencies, expenses } = useSelector((state:RootState) => state.wallet);
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -22,9 +24,20 @@ function WalletForm() {
     setExpense({ ...expense, [id]: value });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const fetchCurrencies = async () => {
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const data = await response.json();
+    return data;
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(actionAddExpense(expense));
+    dispatch(actionAddExpense({
+      ...expense,
+      id: expenses.length,
+      exchangeRates: await fetchCurrencies(),
+    }));
+    setExpense(initialFormExpense);
   };
 
   return (
@@ -38,11 +51,11 @@ function WalletForm() {
           value={ expense.description }
           onChange={ handleChange }
         />
-        <label htmlFor="category">Categoria da despesa</label>
+        <label htmlFor="tag">Categoria da despesa</label>
         <select
-          id="category"
+          id="tag"
           data-testid="tag-input"
-          value={ expense.category }
+          value={ expense.tag }
           onChange={ handleChange }
         >
           <option value="alimentacao">Alimentação</option>
@@ -72,15 +85,18 @@ function WalletForm() {
           <option value="credito">Cartão de crédito</option>
           <option value="debito">Cartão de débito</option>
         </select>
-        <label htmlFor="moeda">Moeda</label>
+        <label htmlFor="currency">Moeda</label>
         <select
-          id="moeda"
+          id="currency"
           data-testid="currency-input"
-          value={ expense.moeda }
+          value={ expense.currency }
           onChange={ handleChange }
         >
-          <option value="BRL">BRL</option>
-          <option value="BRL">usd</option>
+          {currencies.map((moeda) => (
+            <option key={ moeda } value={ moeda }>
+              {moeda}
+            </option>
+          ))}
         </select>
       </div>
       <button type="submit">Adicionar despesa</button>

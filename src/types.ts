@@ -1,15 +1,37 @@
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+
 export type ActionAddExpense = {
   type: string;
   payload: PayloadCurrency;
 };
 
+export type Exchange = {
+  code: string;
+  codein: string;
+  name: string;
+  high: string;
+  low: string;
+  varBid: string;
+  pctChange: string;
+  bid: string;
+  ask: string;
+  timestamp: string;
+  create_date: string;
+};
+
+export type CurrencyData = {
+  exchangeRates: Exchange[];
+};
+
 export type PayloadCurrency = {
   id: number,
   description: string,
-  category:string
+  tag: string;
   value: string;
   methody: string;
-  moeda: string;
+  currency: string;
+  exchangeRates: CurrencyData;
 };
 
 export type ActionUser = {
@@ -19,5 +41,7 @@ export type ActionUser = {
 
 export type RootState = {
   user: { email: string };
-  wallet: { currencies: [] };
+  wallet: { expenses: PayloadCurrency[], currencies: string[] };
 };
+
+export type Dispatch = ThunkDispatch<RootState, null, AnyAction>;
