@@ -1,20 +1,27 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styles from '../styles/login.module.css';
+import { actionUser } from '../redux/actions';
 
 function Login() {
   const [form, setForm] = useState({ email: '', password: '', btn: false });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
-    const btnActive = id === 'senha' ? value.length >= 6 : false;
-    setForm({ ...form, [id]: value, btn: btnActive });
-    console.log(btnActive);
+    setForm((prevState) => {
+      const updatedForm = { ...prevState, [id]: value };
+      return updatedForm;
+    });
   };
+  const regex = /^[\w.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const btnActive = form.password.length > 5 && regex.test(form.email);
 
   const handleSubmitLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    dispatch(actionUser(form.email));
     navigate('/carteira');
   };
 
@@ -31,19 +38,21 @@ function Login() {
           type="email"
           id="email"
           onChange={ handleChange }
+          value={ form.email }
           data-testid="email-input"
         />
         <input
           className={ styles.input }
           type="password"
-          id="senha"
+          id="password"
           onChange={ handleChange }
+          value={ form.password }
           data-testid="password-input"
         />
         <button
           className={ styles.btn }
           type="submit"
-          disabled={ !form.btn }
+          disabled={ !btnActive }
         >
           Entrar
         </button>
