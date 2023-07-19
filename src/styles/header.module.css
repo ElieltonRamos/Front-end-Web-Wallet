@@ -1,11 +1,58 @@
 .container {
-  width: 64.812rem;
-  height: 30.125rem;
-  flex-shrink: 0;
-  border-radius: 0.625rem;
+  align-items: baseline;
   background: white;
+  border-radius: 0.625rem;
   box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+  display: flex;
+  flex-shrink: 0;
+  gap: 1.5rem;
+  height: 30.125rem;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 2.5rem;
+  width: 64.812rem;
+}
+
+.containerInfos {
+  align-items: center;
+  display: flex;
+}
+
+.emailField {
+  color: #2fc18c;
+  font-family: Epilogue, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 7.688rem;
+}
+
+.imgMoedas {
+  flex-shrink: 0;
+  height: 1.794rem;
+  width: 1.794rem;
+}
+
+.imgPerfil {
+  flex-shrink: 0;
+  height: 1.575rem;
+  width: 1.578rem;
+}
+
+.logoContainer {
+  flex-shrink: 0;
+  height: 3.268rem;
+  width: 15.636rem;
+}
+
+.totalField {
+  color: #003be5;
+  font-family: Epilogue, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 14.563rem;
 }

@@ -8,21 +8,29 @@ function Header() {
   const expenses = 0;
   return (
     <header className={ styles.container }>
-      <div>
+      <div className={ styles.logoContainer }>
         <img className={ stylesLogin.emojiLogo } src="/imgs/emojiLogo.png" alt="emoji" />
         <img className={ stylesLogin.logo } src="/imgs/logo.svg" alt="logo" />
         <img className={ stylesLogin.logo } src="/imgs/logo01.svg" alt="Logo" />
       </div>
-      <section>
-        <img src="/imgs/expensesIcon.svg" alt="expenses icon" />
-        <h3 data-testid="total-field">
+      <section className={ styles.containerInfos }>
+        <img
+          className={ styles.imgMoedas }
+          src="/imgs/expensesIcon.svg"
+          alt="expenses icon"
+        />
+        <h3 data-testid="total-field" className={ styles.totalField }>
           {`Total de despesas: ${expenses} `}
           <span data-testid="header-currency-field">BRL</span>
         </h3>
       </section>
-      <section>
-        <img src="/imgs/perfil.svg" alt="Logo perfil" />
-        <h3 data-testid="email-field">{ email }</h3>
+      <section className={ styles.containerInfos }>
+        <img
+          className={ styles.imgPerfil }
+          src="/imgs/perfil.svg"
+          alt="Logo perfil"
+        />
+        <h3 data-testid="email-field" className={ styles.emailField }>{ email }</h3>
       </section>
     </header>
   );
