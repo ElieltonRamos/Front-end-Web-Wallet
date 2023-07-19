@@ -1,4 +1,4 @@
-import { ActionAddExpense } from '../../types';
+import { PayloadCurrency } from '../../types';
 import { SET_USER } from '../reducers/user';
 import { ADD_EXPENSE } from '../reducers/wallet';
 
@@ -7,7 +7,7 @@ export const actionUser = (email: string) => ({
   payload: { email },
 });
 
-export const actionAddExpense = (currency: ActionAddExpense) => ({
+export const actionAddExpense = (currency: PayloadCurrency) => ({
   type: ADD_EXPENSE,
-  payload: { currency },
+  payload: currency,
 });

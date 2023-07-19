@@ -1,15 +1,19 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { actionAddExpense } from '../redux/actions';
 
 const initialFormExpense = {
+  id: 1,
   description: '',
   category: '',
-  value: 0,
+  value: '',
   methody: '',
   moeda: '',
 };
 
 function WalletForm() {
   const [expense, setExpense] = useState(initialFormExpense);
+  const dispatch = useDispatch();
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>,
@@ -18,8 +22,13 @@ function WalletForm() {
     setExpense({ ...expense, [id]: value });
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    dispatch(actionAddExpense(expense));
+  };
+
   return (
-    <form>
+    <form onSubmit={ handleSubmit }>
       <div>
         <label htmlFor="description">Descrição da despesa</label>
         <input
