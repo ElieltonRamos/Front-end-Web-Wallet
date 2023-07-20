@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionAddExpense } from '../redux/actions';
 import { RootState } from '../types';
+import styles from '../styles/WalletForm.module.css';
 
 const initialFormExpense = {
   id: 1,
@@ -14,7 +15,7 @@ const initialFormExpense = {
 
 function WalletForm() {
   const [expense, setExpense] = useState(initialFormExpense);
-  const { currencies, expenses } = useSelector((state:RootState) => state.wallet);
+  const { currencies, expenses } = useSelector((state: RootState) => state.wallet);
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -41,18 +42,25 @@ function WalletForm() {
   };
 
   return (
-    <form onSubmit={ handleSubmit }>
-      <div>
-        <label htmlFor="description">Descrição da despesa</label>
+    <form className={ styles.container } onSubmit={ handleSubmit }>
+      <div className={ styles.containerInputs }>
+        <label
+          htmlFor="description"
+          className={ styles.label }
+        >
+          Descrição da despesa
+        </label>
         <input
+          className={ styles.input }
           type="text"
           id="description"
           data-testid="description-input"
           value={ expense.description }
           onChange={ handleChange }
         />
-        <label htmlFor="tag">Categoria da despesa</label>
+        <label className={ styles.label } htmlFor="tag">Categoria da despesa</label>
         <select
+          className={ styles.input }
           id="tag"
           data-testid="tag-input"
           value={ expense.tag }
@@ -65,17 +73,19 @@ function WalletForm() {
           <option value="Saude">Saúde</option>
         </select>
       </div>
-      <div>
-        <label htmlFor="value">Valor</label>
+      <div className={ styles.containerInputs }>
+        <label className={ styles.label } htmlFor="value">Valor</label>
         <input
+          className={ styles.input }
           type="number"
           id="value"
           data-testid="value-input"
           value={ expense.value }
           onChange={ handleChange }
         />
-        <label htmlFor="method">Método de pagamento</label>
+        <label className={ styles.label } htmlFor="method">Método de pagamento</label>
         <select
+          className={ styles.input }
           id="method"
           data-testid="method-input"
           value={ expense.method }
@@ -85,8 +95,9 @@ function WalletForm() {
           <option value="Cartão de crédito">Cartão de crédito</option>
           <option value="Cartão de débito">Cartão de débito</option>
         </select>
-        <label htmlFor="currency">Moeda</label>
+        <label className={ styles.label } htmlFor="currency">Moeda</label>
         <select
+          className={ styles.input }
           id="currency"
           data-testid="currency-input"
           value={ expense.currency }
@@ -99,7 +110,7 @@ function WalletForm() {
           ))}
         </select>
       </div>
-      <button type="submit">Adicionar despesa</button>
+      <button className={ styles.button } type="submit">Adicionar despesa</button>
     </form>
   );
 }

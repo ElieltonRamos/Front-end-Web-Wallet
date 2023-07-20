@@ -1,0 +1,49 @@
+.button {
+  background: #2fc18c;
+  border: 1px solid #2fc18c;
+  border-radius: 0.312rem;
+  color: white;
+  flex-shrink: 0;
+  font-family: Epilogue, sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 700;
+  height: 2.5rem;
+  line-height: normal;
+  text-align: center;
+  width: 20.625rem;
+}
+
+.container {
+  align-items: center;
+  background: rgba(225, 229, 235, 0.49);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 8.375rem;
+  justify-content: space-around;
+  width: 64.812rem;
+}
+
+.containerInputs {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.input {
+  border: 1px solid #003be5;
+  border-radius: 0.312rem;
+  flex-shrink: 0;
+  font-size: 1rem;
+  height: 1.875rem;
+}
+
+.label {
+  color: #003be5;
+  font-family: Epilogue, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
