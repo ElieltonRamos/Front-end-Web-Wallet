@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import { actionRequestCoins } from '../redux/actions';
 import { Dispatch } from '../types';
+import Table from '../components/Table';
 
 function Wallet() {
   const dispatch: Dispatch = useDispatch();
@@ -14,6 +15,7 @@ function Wallet() {
   return (
     <main>
       <Header />
+      <Table />
     </main>
   );
 }
