@@ -1,0 +1,45 @@
+.container {
+  background: #003be5;
+  border-radius: 0.7rem;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  flex-shrink: 0;
+  height: 29rem;
+  margin-top: -10rem;
+  padding-top: 11rem;
+  width: 72rem;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+  width: 90%;
+}
+
+td {
+  color: #2fc18c;
+  max-width: 13rem;
+  overflow: hidden;
+  padding: 8px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  color: white;
+  max-width: 13rem;
+  overflow: hidden;
+  padding: 8px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+td , th {
+  border-bottom: 1px solid #ddd;
+}
+
+th:not( :last-child ) {
+  border-right: 1px solid #ddd;
+}
+

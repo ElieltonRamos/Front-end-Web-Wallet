@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../types';
+import styles from '../styles/table.module.css';
 
 function Table() {
   const expenses = useSelector((state: RootState) => state.wallet.expenses);
   return (
-    <section>
+    <section className={ styles.container }>
       <table>
         <thead>
           <tr>

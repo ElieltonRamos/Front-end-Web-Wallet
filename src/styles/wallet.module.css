@@ -1,0 +1,15 @@
+.containerMain {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.header {
+  z-index: 1;
+}
+
+.table {
+  z-index: 0;
+}

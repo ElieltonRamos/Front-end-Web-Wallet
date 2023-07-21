@@ -22,6 +22,8 @@
   flex-shrink: 0;
   height: 8.375rem;
   justify-content: space-around;
+  margin-top: 3rem;
+  padding: 6rem;
   width: 64.812rem;
 }
 
@@ -29,6 +31,7 @@
   align-items: center;
   display: flex;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .input {

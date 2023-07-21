@@ -8,26 +8,28 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 2.5rem;
+  padding-top: 5.5rem;
   width: 64.812rem;
 }
 
 .containerData {
+  align-items: baseline;
+  column-gap: 3rem;
   display: flex;
-  gap: 3rem;
-  margin-left: 50%;
+  margin-left: 45%;
   transform: translate(-50%, -50%);
 }
 
 .containerInfos {
   align-items: center;
   display: flex;
+  white-space: nowrap;
 }
 
 .emailField {
   color: #2fc18c;
   font-family: Epilogue, sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -55,7 +57,7 @@
 .totalField {
   color: #003be5;
   font-family: Epilogue, sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
