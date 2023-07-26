@@ -6,9 +6,16 @@ function Tbody() {
   const expenses = useSelector((state: RootState) => state.wallet.expenses);
   const dispatch = useDispatch();
 
-  const handleClick = (id: number) => {
+  const handleClickDelete = (id: number) => {
     const newListExpenses = expenses.filter((expense) => expense.id !== id);
     dispatch(actionSetExpenses(newListExpenses));
+  };
+
+  const handleClickEdit = (id: number) => {
+    const expense = expenses.find((item) => item.id === id);
+    if (expense) {
+      console.log(expense);
+    }
   };
 
   return (
@@ -29,13 +36,12 @@ function Tbody() {
             <td>{Number(convertedValue).toFixed(2)}</td>
             <td>Real</td>
             <td>
-              <button
-                data-testid="delete-btn"
-                onClick={ () => handleClick(id) }
-              >
+              <button data-testid="delete-btn" onClick={ () => handleClickDelete(id) }>
                 <img src="imgs/btnDelete.svg" alt="delete" />
               </button>
-              <button>Editar</button>
+              <button data-testid="edit-btn" onClick={ () => handleClickEdit(id) }>
+                Editar
+              </button>
             </td>
           </tr>
         );
