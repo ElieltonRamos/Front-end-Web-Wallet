@@ -2,7 +2,12 @@ import { Dispatch } from 'redux';
 import { PayloadCurrency } from '../../types';
 import { SET_USER } from '../reducers/user';
 import { ADD_EXPENSE, REQUEST_FAILED,
-  REQUEST_SUCCESS, SET_CURRENCIES } from '../reducers/wallet';
+  SET_CURRENCIES, SET_EXPENSES } from '../reducers/wallet';
+
+export const actionSetExpenses = (expenses: PayloadCurrency[]) => ({
+  type: SET_EXPENSES,
+  payload: expenses,
+});
 
 export const actionUser = (email: string) => ({
   type: SET_USER,
@@ -14,10 +19,10 @@ export const actionAddExpense = (currency: PayloadCurrency) => ({
   payload: currency,
 });
 
-const requestSuccess = (data: any) => ({
-  type: REQUEST_SUCCESS,
-  payload: data,
-});
+// const requestSuccess = (data: any) => ({
+//   type: REQUEST_SUCCESS,
+//   payload: data,
+// });
 
 const setCurrencies = (data: any) => ({
   type: SET_CURRENCIES,

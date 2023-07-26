@@ -5,6 +5,7 @@ export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
 export const REQUEST_FAILED = 'REQUEST_FAILED';
 export const SET_CURRENCIES = 'SET_CURRENCIES';
+export const SET_EXPENSES = 'SET_EXPENSES';
 
 const INITIAL_STATE = {
   expenses: [],
@@ -22,6 +23,11 @@ const wallet = (state = INITIAL_STATE, action: ActionAddExpense) => {
       return {
         ...state,
         currencies: action.payload,
+      };
+    case SET_EXPENSES:
+      return {
+        ...state,
+        expenses: action.payload,
       };
     default: return state;
   }
