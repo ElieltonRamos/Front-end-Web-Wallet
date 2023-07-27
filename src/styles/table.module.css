@@ -17,7 +17,7 @@ table {
 
 td {
   color: #2fc18c;
-  max-width: 13rem;
+  max-width: 8rem;
   overflow: hidden;
   padding: 8px;
   text-align: left;
@@ -27,7 +27,7 @@ td {
 
 th {
   color: white;
-  max-width: 13rem;
+  max-width: 8rem;
   overflow: hidden;
   padding: 8px;
   text-align: center;
@@ -43,3 +43,19 @@ th:not( :last-child ) {
   border-right: 1px solid #ddd;
 }
 
+.btnDelete {
+  background-color: red;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.btnEdit {
+  background-color: blue;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 5px;
+}

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../types';
 import { actionEditExpense, actionSetExpenses } from '../redux/actions';
+import styles from '../styles/table.module.css';
 
 function Tbody() {
   const expenses = useSelector((state: RootState) => state.wallet.expenses);
@@ -33,10 +34,18 @@ function Tbody() {
             <td>{Number(convertedValue).toFixed(2)}</td>
             <td>Real</td>
             <td>
-              <button data-testid="delete-btn" onClick={ () => handleClickDelete(id) }>
-                <img src="imgs/btnDelete.svg" alt="delete" />
+              <button
+                className={ styles.btnDelete }
+                data-testid="delete-btn"
+                onClick={ () => handleClickDelete(id) }
+              >
+                Excluir
               </button>
-              <button data-testid="edit-btn" onClick={ () => handleClickEdit(id) }>
+              <button
+                className={ styles.btnEdit }
+                data-testid="edit-btn"
+                onClick={ () => handleClickEdit(id) }
+              >
                 Editar
               </button>
             </td>
