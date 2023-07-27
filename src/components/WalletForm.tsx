@@ -49,13 +49,16 @@ function WalletForm() {
       const expenseToEdit = expenses.find((e) => e.id === expense.id);
       if (expenseToEdit) {
         const index = expenses.indexOf(expenseToEdit);
-        expenses[index] = expense;
-        dispatch(actionSetExpenses(expenses));
+        const newExpenses = [...expenses];
+        const { btnText, ...updatedExpense } = expense;
+        newExpenses[index] = updatedExpense;
+        dispatch(actionSetExpenses(newExpenses));
         setExpense(initialFormExpense);
       }
     } else {
+      const { btnText, ...updatedExpense } = expense;
       dispatch(actionAddExpense({
-        ...expense,
+        ...updatedExpense,
         id: expenses.length,
         exchangeRates: await fetchCurrencies(),
       }));
@@ -92,7 +95,7 @@ function WalletForm() {
           <option value="Lazer">Lazer</option>
           <option value="Trabalho">Trabalho</option>
           <option value="Transporte">Transporte</option>
-          <option value="Saude">Saúde</option>
+          <option value="Saúde">Saúde</option>
         </select>
       </div>
       <div className={ styles.containerInputs }>
@@ -113,7 +116,7 @@ function WalletForm() {
           value={ expense.method }
           onChange={ handleChange }
         >
-          <option value="dinheiro">Dinheiro</option>
+          <option value="Dinheiro">Dinheiro</option>
           <option value="Cartão de crédito">Cartão de crédito</option>
           <option value="Cartão de débito">Cartão de débito</option>
         </select>

@@ -27,7 +27,7 @@ export type PayloadCurrency = {
   value: string;
   method: string;
   currency: string;
-  btnText: string;
+  btnText?: string;
   exchangeRates: {
     [currency: string]: Exchange;
   };
