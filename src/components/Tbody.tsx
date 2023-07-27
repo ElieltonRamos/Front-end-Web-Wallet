@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../types';
-import { actionSetExpenses } from '../redux/actions';
+import { actionEditExpense, actionSetExpenses } from '../redux/actions';
 
 function Tbody() {
   const expenses = useSelector((state: RootState) => state.wallet.expenses);
@@ -12,10 +12,7 @@ function Tbody() {
   };
 
   const handleClickEdit = (id: number) => {
-    const expense = expenses.find((item) => item.id === id);
-    if (expense) {
-      console.log(expense);
-    }
+    dispatch(actionEditExpense(id));
   };
 
   return (

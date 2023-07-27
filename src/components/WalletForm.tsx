@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionAddExpense } from '../redux/actions';
+import { actionAddExpense, actionSetExpenses } from '../redux/actions';
 import { RootState } from '../types';
 import styles from '../styles/WalletForm.module.css';
 
@@ -11,12 +11,24 @@ const initialFormExpense = {
   value: '',
   method: 'Dinheiro',
   currency: 'USD',
+  btnText: 'Adicionar despesa',
+  exchangeRates: {},
 };
 
 function WalletForm() {
+  const { currencies, expenses,
+    editExpense } = useSelector((state: RootState) => state.wallet);
   const [expense, setExpense] = useState(initialFormExpense);
-  const { currencies, expenses } = useSelector((state: RootState) => state.wallet);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (editExpense !== -1) {
+      const expenseToEdit = expenses.find((e) => e.id === editExpense);
+      if (expenseToEdit) {
+        setExpense({ ...expenseToEdit, btnText: 'Editar despesa' });
+      }
+    }
+  }, [editExpense]);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>,
@@ -33,12 +45,22 @@ function WalletForm() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(actionAddExpense({
-      ...expense,
-      id: expenses.length,
-      exchangeRates: await fetchCurrencies(),
-    }));
-    setExpense(initialFormExpense);
+    if (editExpense !== -1) {
+      const expenseToEdit = expenses.find((e) => e.id === expense.id);
+      if (expenseToEdit) {
+        const index = expenses.indexOf(expenseToEdit);
+        expenses[index] = expense;
+        dispatch(actionSetExpenses(expenses));
+        setExpense(initialFormExpense);
+      }
+    } else {
+      dispatch(actionAddExpense({
+        ...expense,
+        id: expenses.length,
+        exchangeRates: await fetchCurrencies(),
+      }));
+      setExpense(initialFormExpense);
+    }
   };
 
   return (
@@ -110,7 +132,7 @@ function WalletForm() {
           ))}
         </select>
       </div>
-      <button className={ styles.button } type="submit">Adicionar despesa</button>
+      <button className={ styles.button } type="submit">{expense.btnText}</button>
     </form>
   );
 }

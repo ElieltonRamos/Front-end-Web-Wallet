@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import { actionRequestCoins } from '../redux/actions';
@@ -9,9 +8,7 @@ import styles from '../styles/wallet.module.css';
 function Wallet() {
   const dispatch: Dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(actionRequestCoins());
-  }, []);
+  dispatch(actionRequestCoins());
 
   return (
     <main className={ styles.containerMain }>

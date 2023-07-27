@@ -27,6 +27,7 @@ export type PayloadCurrency = {
   value: string;
   method: string;
   currency: string;
+  btnText: string;
   exchangeRates: {
     [currency: string]: Exchange;
   };
@@ -39,7 +40,9 @@ export type ActionUser = {
 
 export type RootState = {
   user: { email: string };
-  wallet: { expenses: PayloadCurrency[], currencies: string[] };
+  wallet: {
+    expenses: PayloadCurrency[], currencies: string[], editExpense: number,
+  };
 };
 
 export type Dispatch = ThunkDispatch<RootState, null, AnyAction>;

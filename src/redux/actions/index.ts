@@ -2,7 +2,12 @@ import { Dispatch } from 'redux';
 import { PayloadCurrency } from '../../types';
 import { SET_USER } from '../reducers/user';
 import { ADD_EXPENSE, REQUEST_FAILED,
-  SET_CURRENCIES, SET_EXPENSES } from '../reducers/wallet';
+  SET_CURRENCIES, SET_EXPENSES, EDIT_EXPENSE } from '../reducers/wallet';
+
+export const actionEditExpense = (id: number) => ({
+  type: EDIT_EXPENSE,
+  payload: id,
+});
 
 export const actionSetExpenses = (expenses: PayloadCurrency[]) => ({
   type: SET_EXPENSES,

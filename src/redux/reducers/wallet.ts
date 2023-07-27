@@ -6,10 +6,12 @@ export const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
 export const REQUEST_FAILED = 'REQUEST_FAILED';
 export const SET_CURRENCIES = 'SET_CURRENCIES';
 export const SET_EXPENSES = 'SET_EXPENSES';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 
 const INITIAL_STATE = {
   expenses: [],
   currencies: [],
+  editExpense: -1,
 };
 
 const wallet = (state = INITIAL_STATE, action: ActionAddExpense) => {
@@ -28,6 +30,12 @@ const wallet = (state = INITIAL_STATE, action: ActionAddExpense) => {
       return {
         ...state,
         expenses: action.payload,
+        editExpense: -1,
+      };
+    case EDIT_EXPENSE:
+      return {
+        ...state,
+        editExpense: action.payload,
       };
     default: return state;
   }
