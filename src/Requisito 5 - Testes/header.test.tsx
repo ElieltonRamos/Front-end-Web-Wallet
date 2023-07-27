@@ -15,5 +15,10 @@ describe('Testes do componente Header', () => {
     const buttonLogin = screen.getByRole('button', { name: /entrar/i });
     await userEvent.click(buttonLogin);
     const textExpense = screen.getByText(/Despesas/i);
+    expect(textExpense).toBeInTheDocument();
+    const totalExpense = screen.getByText(/Total de Despesas:/i);
+    expect(totalExpense).toBeInTheDocument();
+    const user = screen.getByRole('heading', { name: /alguem@gmail.com/i });
+    expect(user).toBeInTheDocument();
   });
 });
