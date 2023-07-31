@@ -1,6 +1,8 @@
 import { screen, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
+import { vi } from 'vitest';
+
 import App from '../App';
 import { renderWithRouter, renderWithRouterAndRedux } from '../tests/helpers/renderWith';
 import Wallet from '../pages/Wallet';
@@ -48,7 +50,7 @@ describe('Testando o componente Tbody', () => {
     });
   });
   it('Verifica se e tratado quando a requisição falha', async () => {
-    global.fetch = jest.fn(() => Promise.reject(new Error('Erro na requisição')));
+    global.fetch = vi.fn(() => Promise.reject(new Error('Erro na requisição')));
     renderWithRouter(<Provider store={ store }><Wallet /></Provider>);
   });
 });
