@@ -24,11 +24,6 @@ export const actionAddExpense = (currency: PayloadCurrency) => ({
   payload: currency,
 });
 
-// const requestSuccess = (data: any) => ({
-//   type: REQUEST_SUCCESS,
-//   payload: data,
-// });
-
 const setCurrencies = (data: any) => ({
   type: SET_CURRENCIES,
   payload: data,
