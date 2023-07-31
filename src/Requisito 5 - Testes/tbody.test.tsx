@@ -7,9 +7,13 @@ import App from '../App';
 import { renderWithRouter, renderWithRouterAndRedux } from '../tests/helpers/renderWith';
 import Wallet from '../pages/Wallet';
 import store from '../redux';
+import mockData from '../tests/helpers/mockData';
 
 describe('Testando o componente Tbody', () => {
   it('Verifica se o componente está sendo renderizado', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      json: async () => (mockData),
+    });
     renderWithRouterAndRedux(<App />, { initialEntries: ['/carteira'] });
     const btnExpense = screen.getByRole('button', { name: /Adicionar despesa/i });
     await userEvent.click(btnExpense);
