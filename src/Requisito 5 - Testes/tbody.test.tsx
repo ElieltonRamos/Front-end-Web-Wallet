@@ -48,7 +48,7 @@ describe('Testando o componente Tbody', () => {
     });
   });
   it('Verifica se e tratado quando a requisição falha', async () => {
-    global.fetch = () => Promise.reject(new Error('Erro na requisição'));
+    global.fetch = jest.fn(() => Promise.reject(new Error('Erro na requisição')));
     renderWithRouter(<Provider store={ store }><Wallet /></Provider>);
   });
 });
