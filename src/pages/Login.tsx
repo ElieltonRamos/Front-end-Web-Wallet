@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import emojiLogo from '../Public/emojiLogo.png';
+import logo from '../Public/logo.svg';
+import logo01 from '../Public/logo01.svg';
+
 import styles from '../styles/login.module.css';
 import { actionUser } from '../redux/actions';
 
@@ -29,9 +33,9 @@ function Login() {
     <main className={ styles.loginContainer }>
       <form onSubmit={ handleSubmitLogin } className={ styles.container }>
         <div>
-          <img className={ styles.emojiLogo } src="src/imgs/emojiLogo.png" alt="emoji" />
-          <img className={ styles.logo } src="src/imgs/logo.svg" alt="logo" />
-          <img className={ styles.logo } src="src/imgs/logo01.svg" alt="Logo" />
+          <img className={ styles.emojiLogo } src={ emojiLogo } alt="emoji" />
+          <img className={ styles.logo } src={ logo } alt="logo" />
+          <img className={ styles.logo } src={ logo01 } alt="Logo" />
         </div>
         <input
           className={ styles.input }
