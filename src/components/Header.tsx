@@ -18,16 +18,16 @@ function Header() {
         <div className={ styles.logoContainer }>
           <img
             className={ stylesLogin.emojiLogo }
-            src="/imgs/emojiLogo.png"
+            src="src/imgs/emojiLogo.png"
             alt="emoji"
           />
-          <img className={ stylesLogin.logo } src="/imgs/logo.svg" alt="logo" />
-          <img className={ stylesLogin.logo } src="/imgs/logo01.svg" alt="Logo" />
+          <img className={ stylesLogin.logo } src="src/imgs/logo.svg" alt="logo" />
+          <img className={ stylesLogin.logo } src="src/imgs/logo01.svg" alt="Logo" />
         </div>
         <section className={ styles.containerInfos }>
           <img
             className={ styles.imgMoedas }
-            src="/imgs/expensesIcon.svg"
+            src="src/imgs/expensesIcon.svg"
             alt="expenses icon"
           />
           <span className={ styles.totalField }>Total de despesas: </span>
@@ -44,7 +44,7 @@ function Header() {
         <section className={ styles.containerInfos }>
           <img
             className={ styles.imgPerfil }
-            src="/imgs/perfil.svg"
+            src="src/imgs/perfil.svg"
             alt="Logo perfil"
           />
           <h3 data-testid="email-field" className={ styles.emailField }>{ email }</h3>

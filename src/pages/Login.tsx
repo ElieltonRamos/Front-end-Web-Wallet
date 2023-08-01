@@ -29,9 +29,9 @@ function Login() {
     <main className={ styles.loginContainer }>
       <form onSubmit={ handleSubmitLogin } className={ styles.container }>
         <div>
-          <img className={ styles.emojiLogo } src="/imgs/emojiLogo.png" alt="emoji" />
-          <img className={ styles.logo } src="/imgs/logo.svg" alt="logo" />
-          <img className={ styles.logo } src="/imgs/logo01.svg" alt="Logo" />
+          <img className={ styles.emojiLogo } src="src/imgs/emojiLogo.png" alt="emoji" />
+          <img className={ styles.logo } src="src/imgs/logo.svg" alt="logo" />
+          <img className={ styles.logo } src="src/imgs/logo01.svg" alt="Logo" />
         </div>
         <input
           className={ styles.input }
