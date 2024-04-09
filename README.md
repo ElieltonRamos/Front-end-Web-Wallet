@@ -1,4 +1,4 @@
-<h1 align="center">TrybeWallet</h1>
+<h1 align="center">Front-end-Web-Wallet</h1>
 
 <p align="center">
   <img src="src/Public/readme.png" alt="TrybeWallet" width="300px">
