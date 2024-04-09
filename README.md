@@ -64,11 +64,11 @@ Siga os passos abaixo para rodar o projeto localmente:
 1. Clone o repositório:
 
 ```
- git clone git@github.com:ElieltonRamos/FrontEnd-Wallet-ts.git
+ git clone git@github.com:ElieltonRamos/Front-end-Web-Wallet.git
 ```
 2. Navegue para o diretório do projeto:
 ```
-cd FrontEnd-Wallet-ts
+cd Front-end-Web-Wallet
 ```
 3. Instale as dependências:
 ```
